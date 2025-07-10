@@ -155,32 +155,29 @@
     const auth = firebase.auth();
 
     // Student Login
-    function student() {
-      const username = document.querySelector('.left input[type="text"]').value;
-      const password = document.querySelector('.left input[type="password"]').value;
+    <!-- Student Login -->
+    <div class="left">
+        <p><b>Student Login</b></p>
+        <input type="email" placeholder="Enter Email">
+        <input type="password" placeholder="Enter Password">
+        <button>Login</button>
+        <div class="forgot-link">
+            <a onclick="showForgot()">Forgot Password?</a>
+        </div>
+    </div>
 
-      auth.signInWithEmailAndPassword(username, password)
-        .then(() => {
-          window.location.href = "StudentHomePage.html";
-        })
-        .catch((error) => {
-          alert("Error: " + error.message);
-        });
-    }
-
+      
     // Faculty Login
-    function faculty() {
-      const username = document.querySelector('.right input[type="text"]').value;
-      const password = document.querySelector('.right input[type="password"]').value;
-
-      auth.signInWithEmailAndPassword(username, password)
-        .then(() => {
-          window.location.href = "FacultyHomePage.html";
-        })
-        .catch((error) => {
-          alert("Error: " + error.message);
-        });
-    }
+    <div class="left">
+        <p><b>Student Login</b></p>
+        <input type="email" placeholder="Enter Email">
+        <input type="password" placeholder="Enter Password">
+        <button>Login</button>
+        <div class="forgot-link">
+            <a onclick="showForgot()">Forgot Password?</a>
+        </div>
+    </div>
+  
 
     // Forgot Password
     function sendRecovery(type) {
