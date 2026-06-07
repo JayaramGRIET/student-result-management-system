@@ -1,5 +1,8 @@
 # 🎓 Student Result Management System
 
+AI Enhancement
+
+Implemented an AI-based Student Performance Alert System that analyzes student marks and identifies academically at-risk students for early faculty intervention.
 A web-based application designed to streamline the management, analysis, and reporting of student academic performance. This project was developed as part of the curriculum at **GRIET** and was presented at the college road show.
 
 ---
@@ -18,18 +21,26 @@ A web-based application designed to streamline the management, analysis, and rep
 ## 🛠️ Tech Stack
 
 ### Frontend
-- HTML, CSS, JavaScript
+- HTML
+- CSS
+- JavaScript
 
 ### Backend
 - PHP
+- Python (AI-based Performance Alert Module)
 
 ### Database
 - PostgreSQL
 
-### Tools
+### Tools & Platforms
 - Visual Studio Code
 - Firebase Studio
-- Git & GitHub for version control
+- Git & GitHub
+- GitHub Pages
+
+### Additional Features
+- AI-based Student Performance Analysis
+- Automated Alert Generation for At-Risk Students
 
 ---
 
