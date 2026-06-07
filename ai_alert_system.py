@@ -1,64 +1,39 @@
-# ai_alert_system.py
+from sklearn.tree import DecisionTreeClassifier
+import numpy as np
 
-class StudentPerformanceAnalyzer:
+# Training Data
+X = np.array([
+    [15, 18],
+    [12, 10],
+    [25, 28],
+    [35, 40],
+    [45, 50],
+    [55, 60],
+    [18, 15],
+    [42, 38]
+])
 
-    def __init__(self, name, mid1, mid2):
-        self.name = name
-        self.mid1 = mid1
-        self.mid2 = mid2
+y = np.array([
+    "High Risk",
+    "High Risk",
+    "Medium Risk",
+    "Medium Risk",
+    "Low Risk",
+    "Low Risk",
+    "High Risk",
+    "Low Risk"
+])
 
-    def average_marks(self):
-        return (self.mid1 + self.mid2) / 2
+model = DecisionTreeClassifier()
+model.fit(X, y)
 
-    def predict_risk(self):
-        avg = self.average_marks()
+def generate_alert(name, mid1, mid2):
+    prediction = model.predict([[mid1, mid2]])[0]
 
-        if self.mid1 < 20 and self.mid2 < 20:
-            return "HIGH RISK"
+    if prediction == "High Risk":
+        return f"{name}: Immediate faculty attention required."
 
-        elif avg < 35:
-            return "MEDIUM RISK"
+    elif prediction == "Medium Risk":
+        return f"{name}: Student needs improvement."
 
-        else:
-            return "LOW RISK"
-
-    def generate_alert(self):
-        risk = self.predict_risk()
-
-        if risk == "HIGH RISK":
-            return f"""
-ALERT FOR {self.name}
-
-Student performance is critically low.
-Immediate faculty intervention is recommended.
-Parents should be informed.
-Academic counseling is suggested.
-"""
-
-        elif risk == "MEDIUM RISK":
-            return f"""
-WARNING FOR {self.name}
-
-Student performance needs improvement.
-Additional practice and monitoring recommended.
-"""
-
-        else:
-            return f"""
-GOOD PERFORMANCE FOR {self.name}
-
-Student is performing satisfactorily.
-Keep up the good work.
-"""
-
-# Example Usage
-
-student = StudentPerformanceAnalyzer(
-    name="Jayaram",
-    mid1=15,
-    mid2=18
-)
-
-print("Average Marks:", student.average_marks())
-print("Risk Level:", student.predict_risk())
-print(student.generate_alert())
+    return f"{name}: Student performance is satisfactory."
